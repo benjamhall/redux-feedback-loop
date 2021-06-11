@@ -5,10 +5,10 @@
     [x] npm install redux-logger
     [x] npm install react-router-dom
     [x] Make Components
-    [  ] Material UI ?
-        [  ] npm install @material-ui/core
-        [  ] npm install @material-ui/icons
-        [   ] npm install @fontsource/roboto
+    [x] Material UI ?
+        [x] npm install @material-ui/core
+        [x] npm install @material-ui/icons
+        [x] npm install @fontsource/roboto
             [  ] import '@fontsource/roboto';
     [  ] Bootstrap ?
         [  ] npm install react-bootstrap bootstrap@4.6.0
