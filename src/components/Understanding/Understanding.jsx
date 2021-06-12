@@ -2,8 +2,9 @@ import React from 'react';
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import Support from "../Support/Support";
-import { useHistory } from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import {useDispatch} from 'react-redux';
+import {useState} from 'react';
 
 function Understanding () {
 
