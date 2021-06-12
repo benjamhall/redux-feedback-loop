@@ -17,7 +17,11 @@ const feedbackReducer = (state = [], action) => {
         return [...state, action.payload]
         case 'UNDERSTANDING' :
         return[...state, action.payload]
-        
+        case 'SUPPORT' :
+        return[...state, action.payload]
+        case 'COMMENTS' :
+        return[...state, action.payload]
+
         
 
         default:
