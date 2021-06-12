@@ -4,7 +4,7 @@ For this assignment, you will be creating a reflection/feedback form modeled aft
 
 - Store data in reducers
 
-Page Flow:
+Page Flow: COMPLETED
 
 1. Start Survey - App.jsx
 

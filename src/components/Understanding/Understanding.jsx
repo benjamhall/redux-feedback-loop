@@ -26,6 +26,7 @@ function Understanding () {
         <div>
             <p>How well are you understanding the content?</p>
             <select onChange={(event) => setInfo(event.target.value)}>
+                <option value="0">0</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
