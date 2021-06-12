@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 
 function ReviewList() {
     const history = useHistory();
-    
+
     const handleSubmit = () => {
 
         axios.post('/feedback', store.feedbackReducer)
@@ -23,6 +23,7 @@ function ReviewList() {
 
     return (
         <div>
+            <h1>Review Your Feedback:</h1>
             <Button variant="outlined" color="primary" onClick={handleSubmit}>Submit</Button>
         </div>
     );

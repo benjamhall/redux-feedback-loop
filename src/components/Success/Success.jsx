@@ -4,12 +4,12 @@ import Button from '@material-ui/core/Button';
 import { useHistory } from "react-router-dom";
 
 
-function ReviewList() {
+function Success() {
     const history = useHistory();
-    
+
     const handleStart = () => {
 
-        history.push('/success')
+        history.push('/start')
     }
 
     return (
@@ -19,4 +19,4 @@ function ReviewList() {
     );
 }
 
-export default ReviewList;
+export default Success;

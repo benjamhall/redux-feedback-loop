@@ -16,6 +16,7 @@ const feedbackReducer = (state = [], action) => {
         case 'FEELING':
         return [...state, action.payload]
         
+
         default:
         return state; 
     }

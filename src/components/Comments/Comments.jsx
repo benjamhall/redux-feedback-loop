@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 
 function Support() {
     const history = useHistory();
-    
+
     const handleNext = () => {
 
         history.push('/review')
@@ -14,7 +14,7 @@ function Support() {
 
     return (
         <div>
-            <h1>How well are you being supported?</h1>
+            <p>How well are you being supported?</p>
             <input type="text" id="text" required></input>
             <Button variant="outlined" color="primary" onClick={handleNext}>Next</Button>
         </div>
