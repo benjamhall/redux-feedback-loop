@@ -7,6 +7,15 @@ function ReviewList() {
 
     const handleSubmit = () => {
 
+        axios.post('/feedback', store.feedbackReducer)
+            .then((response) => {
+                console.log(response)
+
+                
+            }).catch((error) => {
+                console.log(error);
+            })
+
         history.push('/success')
     }
 
