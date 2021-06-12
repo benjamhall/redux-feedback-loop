@@ -10,15 +10,15 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
 
-const feedbackReducer = (state = [], action) => {
+// const feedbackReducer = (state = [], action) => {
     
-}
+// }
 
 
 
 const store = createStore(
     combineReducers({
-      feedbackReducer,
+      //feedbackReducer,
     }),
     applyMiddleware(logger),
 )
