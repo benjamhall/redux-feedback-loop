@@ -3,12 +3,21 @@ import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import Support from "../Support/Support";
 import { useHistory } from "react-router-dom";
+import {useDispatch} from 'react-redux';
 
 function Understanding () {
+
+    const [info, setInfo] = useState('');
+
     const history = useHistory();
+    const dispatch = useDispatch();
 
     const handleNext = () => {
-
+            console.log('dispatching', info);
+            dispatch({
+                type: 'UNDERSTANDING',
+                payload: info
+            })
         history.push('/support')
     }
 

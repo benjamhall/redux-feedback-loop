@@ -8,7 +8,7 @@ import {useDispatch} from 'react-redux';
 
 function Feeling () {
 
-    const [info, setInfo] = useState('')
+    const [info, setInfo] = useState('');
     
     const history = useHistory();
     const dispatch = useDispatch();
@@ -34,7 +34,6 @@ function Feeling () {
                 <option value="4">4</option>
                 <option value="5">5</option>
             </select>
-            {/* <input type="number" placeholder="number" id="number" required></input> */}
             <Button variant="outlined" color="primary" onClick={handleNext}>Next</Button>
         </div>
     );
