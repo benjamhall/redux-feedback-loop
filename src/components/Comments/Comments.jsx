@@ -1,10 +1,12 @@
 import React from 'react';
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
+import { useHistory } from "react-router-dom";
 
 
 function Support() {
-
+    const history = useHistory();
+    
     const handleNext = () => {
 
         history.push('/review')

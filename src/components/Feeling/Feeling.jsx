@@ -2,9 +2,11 @@ import React from 'react';
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import Understanding from "../Understanding/Understanding";
+import { useHistory } from "react-router-dom";
 
 function Feeling () {
-
+    const history = useHistory();
+    
     const handleNext = () => {
 
         history.push('/understanding')

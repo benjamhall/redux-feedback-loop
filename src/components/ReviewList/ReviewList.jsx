@@ -1,17 +1,19 @@
 import React from 'react';
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
+import { useHistory } from "react-router-dom";
 
 
 function ReviewList() {
-
+    const history = useHistory();
+    
     const handleSubmit = () => {
 
         axios.post('/feedback', store.feedbackReducer)
             .then((response) => {
                 console.log(response)
 
-                
+
             }).catch((error) => {
                 console.log(error);
             })
