@@ -2,14 +2,14 @@ import React from 'react';
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import { useHistory } from "react-router-dom";
-import {useDispatch} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import {useState} from 'react';
 
 
 function Comments() {
 
     const [info, setInfo] = useState('');
-   
+    const comments = useSelector((store) => store.feedbackReducer);
 
     const history = useHistory();
     const dispatch = useDispatch();
@@ -20,6 +20,15 @@ function Comments() {
             type: 'COMMENTS',
             payload: info
         })
+
+        axios.post('/feedback', comments)
+            .then((response) => {
+                console.log(response)
+                getResponses();
+            }).catch((error) => {
+                console.log(error);
+            })
+
         history.push('/review')
     }
 

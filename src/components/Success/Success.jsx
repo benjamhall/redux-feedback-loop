@@ -9,7 +9,7 @@ function Success() {
 
     const handleStart = () => {
 
-        history.push('/start')
+        history.push('/')
     }
 
     return (
