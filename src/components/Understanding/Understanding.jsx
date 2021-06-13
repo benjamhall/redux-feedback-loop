@@ -14,6 +14,13 @@ function Understanding () {
     const dispatch = useDispatch();
 
     const handleNext = () => {
+
+        // input validation to make sure that the user selects a value
+        if (info === '') {
+            console.log('value selected')
+            alert('Please select a value for how you are feeling.');
+            return false;
+        }
             console.log('dispatching', info);
             dispatch({
                 type: 'UNDERSTANDING',
@@ -24,9 +31,9 @@ function Understanding () {
 
     return (
         <div>
-            <p>How well are you understanding the content?</p>
+            <h2>How well are you understanding the content?</h2>
             <select onChange={(event) => setInfo(event.target.value)}>
-                <option value="0">0</option>
+                <option value="0"></option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
