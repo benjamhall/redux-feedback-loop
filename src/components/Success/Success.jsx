@@ -14,7 +14,8 @@ function Success() {
 
     return (
         <div>
-            <Button variant="outlined" color="primary" onClick={handleStart}>Start Survey</Button>
+            <h2>Thank You for Completing the Survey!</h2>
+            <Button variant="outlined" color="primary" onClick={handleStart}>Start Survey Again</Button>
         </div>
     );
 }

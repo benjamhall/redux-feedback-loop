@@ -13,6 +13,7 @@ import { Provider } from 'react-redux';
 const feedbackReducer = (state = {}, action) => {
     
     switch(action.type){
+    
         case 'FEELING':
         return {...state, feeling: action.payload}
         case 'UNDERSTANDING' :
@@ -21,6 +22,8 @@ const feedbackReducer = (state = {}, action) => {
         return {...state, support: action.payload}
         case 'COMMENTS' :
         return {...state, comments: action.payload}
+        case 'CLEAR_FEEDBACK' :
+        return {}
 
     
         default:
@@ -29,11 +32,21 @@ const feedbackReducer = (state = {}, action) => {
     
 }
 
+const feedbackList = (state = [], action) => {
+    switch(action.type){
+        case 'GET_FEEDBACK' :
+        return action.payload
+
+        default :
+        return state; 
+    }
+}
 
 
 const store = createStore(
     combineReducers({
       feedbackReducer,
+      feedbackList
     }),
     applyMiddleware(logger),
 )

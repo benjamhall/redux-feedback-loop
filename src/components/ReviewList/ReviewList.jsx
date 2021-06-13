@@ -1,15 +1,16 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch} from "react-redux";
 
 
 function ReviewList() {
     const history = useHistory();
+    const dispatch = useDispatch();
 
     const info = useSelector((store) => store.feedbackReducer);
-    const [surveyList, setSurveyList] = useState([])
+    
     
     console.log('info', info);
 
@@ -22,7 +23,11 @@ function ReviewList() {
         axios.get('/feedback')
         .then((response) => {
             console.log('get', response);
-            setSurveyList(response.data)
+            
+            dispatch({
+                type: 'GET_FEEDBACK',
+                payload: response.data
+            })
         }).catch((error) => {
                 console.log(error);
             })
@@ -35,7 +40,10 @@ function ReviewList() {
         axios.post('/feedback', info)
             .then((response) => {
                 console.log(response)
-                getResponses();
+                dispatch({
+                    type: 'CLEAR_FEEDBACK'
+                })
+                
             }).catch((error) => {
                 console.log(error);
             })
@@ -50,15 +58,12 @@ function ReviewList() {
             <div>
                 <h1>Review Your Feedback:</h1>
                 <br />
-
-                {surveyList.map((response, index) =>
-                    <div key={index}> 
-                        <p>Feeling: {response.feeling}</p>
-                        <p>Understanding: {response.understanding}</p>
-                        <p>Support: {response.support}</p>
-                        <p>Comments: {response.comments}</p>
+                    <div>
+                        <p>Feeling: {info.feeling}</p>
+                        <p>Understanding: {info.understanding}</p>
+                        <p>Support: {info.support}</p>
+                        <p>Comments: {info.comments}</p>
                     </div>
-                )}
             </div>
 
             <Button variant="outlined" color="primary" onClick={handleSubmit}>Submit</Button>
