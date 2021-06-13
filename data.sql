@@ -13,6 +13,6 @@ CREATE DATABASE "prime_feedback";
   "date" date not null default CURRENT_DATE
 );
 
--- Sample feedback item
+-- Sample feedback item - if you want to make sure the database is working
 INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
 VALUES (4, 4, 5, 'Doing Great!');
