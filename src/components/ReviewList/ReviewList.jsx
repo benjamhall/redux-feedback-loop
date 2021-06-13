@@ -54,9 +54,9 @@ function ReviewList() {
                 {surveyList.map((response, index) =>
                     <div key={index}> 
                         <p>Feeling: {response.feeling}</p>
-                        <p>{response.understanding}</p>
-                        <p>{response.support}</p>
-                        <p>{response.comments}</p>
+                        <p>Understanding: {response.understanding}</p>
+                        <p>Support: {response.support}</p>
+                        <p>Comments: {response.comments}</p>
                     </div>
                 )}
             </div>
