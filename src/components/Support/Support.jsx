@@ -6,7 +6,7 @@ import {useDispatch} from 'react-redux';
 import {useState} from 'react';
 
 
-
+// This function handles the Support section of the survey and requires a value to be selected
 function Support () {
     const [info, setInfo] = useState('');
 
@@ -14,13 +14,13 @@ function Support () {
     const dispatch = useDispatch();
 
     const handleNext = () => {
-
+        // Input validation alerting the user they must select a value
         if (info === '') {
             console.log('value selected')
             alert('Please select a value for how you are feeling.');
             return false;
         }
-
+        // Dispatching the information to the reducer
         console.log('dispatching', info);
         dispatch({
             type: 'SUPPORT',

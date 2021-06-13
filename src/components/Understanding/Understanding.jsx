@@ -6,6 +6,7 @@ import {useHistory} from "react-router-dom";
 import {useDispatch} from 'react-redux';
 import {useState} from 'react';
 
+//This function handles the understanding section of the survey
 function Understanding () {
 
     const [info, setInfo] = useState('');
@@ -21,11 +22,13 @@ function Understanding () {
             alert('Please select a value for how you are feeling.');
             return false;
         }
+        // Dispatching the information to the reducer
             console.log('dispatching', info);
             dispatch({
                 type: 'UNDERSTANDING',
                 payload: info
             })
+        // directs the user to the support page
         history.push('/support')
     }
 

@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch} from "react-redux";
 
-
+//This function shows the user what they entered on the survey as a review and posts the data to the database. 
 function ReviewList() {
     const history = useHistory();
     const dispatch = useDispatch();
@@ -33,13 +33,14 @@ function ReviewList() {
             })
     }
     
-    
+    // On submit, this function sends the info to the server and then to the database
     const handleSubmit = () => {
         console.log('got to post feedback', info);
-
+        //POST request to the server
         axios.post('/feedback', info)
             .then((response) => {
                 console.log(response)
+            //Clears the feedback in the reducer because the data was sent to the database so that the reducer can handle the next user's data
                 dispatch({
                     type: 'CLEAR_FEEDBACK'
                 })
@@ -47,7 +48,7 @@ function ReviewList() {
             }).catch((error) => {
                 console.log(error);
             })
-
+        // routes the user to the success page
         history.push('/success')
     }
 

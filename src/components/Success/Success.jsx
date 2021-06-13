@@ -3,7 +3,7 @@ import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import { useHistory } from "react-router-dom";
 
-
+//This function congratulates the user on completing the survey and offers them the opportunity to take it again. 
 function Success() {
     const history = useHistory();
 

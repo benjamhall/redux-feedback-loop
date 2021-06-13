@@ -10,14 +10,9 @@ import Comments from "../Comments/Comments.jsx";
 import ReviewList from "../ReviewList/ReviewList.jsx"
 import Success from "../Success/Success.jsx"
 
+//This function handles the initial setup of the Routes of the survey
 function App() {
   const history = useHistory();
-
-  //When the Start Survey button is clicked then this function sends the user to the 'feeling' page 
-  const handleStart = () => {
-    console.log('clicked start survey')
-    history.push('/')
-  }
 
   return (
     <Router>
@@ -28,9 +23,6 @@ function App() {
       </header>
 
       <br />
-      {/* <nav>
-      <Link to='/feeling'></Link>
-        </nav> */}
       <Route path="/" exact><Start /></Route>
       <Route path='/feeling'><Feeling /></Route>
       <Route path='/understanding'><Understanding /></Route>

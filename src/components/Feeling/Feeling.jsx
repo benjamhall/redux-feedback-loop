@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 import {useState} from 'react';
 import {useDispatch} from 'react-redux';
 
+//This function involves the Feeling section of the survey and it will not submit until the user has selected 1-5 
 function Feeling () {
 
     const [info, setInfo] = useState('');
@@ -14,18 +15,19 @@ function Feeling () {
     const dispatch = useDispatch();
 
     const handleNext = () => {
-
+        // Alerts the user that they must select a value
         if (info === ''){
             console.log('value selected')
             alert('Please select a value for how you are feeling.');
             return false;
         }
+        // Dispatching the information to the reducer
             console.log('dispatching', info);
             dispatch({
                 type: 'FEELING',
                 payload: info
             })
-
+        //directs the user to the understanding page
         history.push('/understanding')
     }
 
