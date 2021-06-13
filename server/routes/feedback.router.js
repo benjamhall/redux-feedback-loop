@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 
+//GET the feedback from the database
 router.get('/', (req,res) => {
     console.log('router get');
     const queryText = `SELECT * FROM feedback`;

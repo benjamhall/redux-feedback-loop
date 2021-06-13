@@ -9,7 +9,7 @@ import registerServiceWorker from './registerServiceWorker';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
-
+// This reducer captures the information from each page of the survey
 const feedbackReducer = (state = {}, action) => {
     
     switch(action.type){
@@ -32,6 +32,7 @@ const feedbackReducer = (state = {}, action) => {
     
 }
 
+// This reducer gets all of the feedback so that the reviewList can append it to the DOM
 const feedbackList = (state = [], action) => {
     switch(action.type){
         case 'GET_FEEDBACK' :
@@ -42,7 +43,7 @@ const feedbackList = (state = [], action) => {
     }
 }
 
-
+// This is where the info is stored
 const store = createStore(
     combineReducers({
       feedbackReducer,
