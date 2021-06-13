@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import { useHistory } from "react-router-dom";
@@ -9,15 +9,33 @@ function ReviewList() {
     const history = useHistory();
 
     const info = useSelector((store) => store.feedbackReducer);
+    const [surveyList, setSurveyList] = useState([])
     
     console.log('info', info);
 
-    const handleSubmit = () => {
-        console.log('got to post feedback', dataToSend);
+     useEffect(() => {
+        console.log('in useEffect')
+        getResponses();
+    }, []);
 
-        axios.post('/feedback', dataToSend)
+    function getResponses (){
+        axios.get('/feedback')
+        .then((response) => {
+            console.log('get', response);
+            setSurveyList(response.data)
+        }).catch((error) => {
+                console.log(error);
+            })
+    }
+    
+    
+    const handleSubmit = () => {
+        console.log('got to post feedback', info);
+
+        axios.post('/feedback', info)
             .then((response) => {
                 console.log(response)
+                getResponses();
             }).catch((error) => {
                 console.log(error);
             })
@@ -25,17 +43,22 @@ function ReviewList() {
         history.push('/success')
     }
 
+    
+
     return (
         <div>
             <div>
                 <h1>Review Your Feedback:</h1>
                 <br />
-                
-                <p>{info[0].feeling}</p>
-                <p>{info[0].understanding}</p>
-                <p>{info[0].support}</p>
-                <p>{info[0].comments}</p>
 
+                {surveyList.map((response, index) =>
+                    <div key={index}> 
+                        <p>Feeling: {response.feeling}</p>
+                        <p>{response.understanding}</p>
+                        <p>{response.support}</p>
+                        <p>{response.comments}</p>
+                    </div>
+                )}
             </div>
 
             <Button variant="outlined" color="primary" onClick={handleSubmit}>Submit</Button>

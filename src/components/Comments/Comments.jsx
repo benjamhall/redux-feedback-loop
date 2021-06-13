@@ -6,9 +6,10 @@ import {useDispatch} from 'react-redux';
 import {useState} from 'react';
 
 
-function Support() {
+function Comments() {
 
     const [info, setInfo] = useState('');
+   
 
     const history = useHistory();
     const dispatch = useDispatch();
@@ -31,4 +32,4 @@ function Support() {
     );
 }
 
-export default Support;
+export default Comments;
